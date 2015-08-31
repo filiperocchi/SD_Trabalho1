@@ -1,0 +1,60 @@
+Main
+{
+	
+	cria as threads de processos
+	inicia as threads de processos
+	{
+		com um id pra cada
+
+	}
+	(poderia ter um processo que fosse o controlador, em que pudesse escolher onde mandar uma mnensagem na aplicação
+	ou deixa hardcoded mesmo)
+}
+
+Processo (thread)
+{
+	atributo lista de processos (estatico, simulando o meio)
+	atributo lista de mensagens
+		tem que ter lista de acks pra lista de mensagens
+	atributo id (unico)
+	atributo aplicacao (uma por processo, pode ser mesmo id do processo)
+
+	inserir nova mensagem
+	{
+		tem que ser ordenado pelo tempo da mensagem
+		manda mensagem requisitando ack de entrega da mensagem (tempo tem que ser igual)
+	}
+
+	mandar ack
+	{
+		pra todos da lista, exceto ele mesmo
+		com tempo da mensagem e tempo próprio(mensagem +1)
+	}
+
+	receber ack
+	{
+		verificar de que mensagem e se tempo do ack é maior
+	}
+}
+
+Mensagem
+{
+	atributo tempo
+	atributo conteudo
+
+}
+
+Ack
+{
+	atributo tempo
+	atributo tempoMensagem
+
+}
+
+Aplicacao
+{
+	atributo id (unico)
+
+	imprime o processo que mandou a mensagem e a mensagem
+	
+}

@@ -1,0 +1,29 @@
+processo
+{
+	fila <mensagem> <-- tem que inserir ordenado por tempo da mensagem
+
+
+	run()
+	{
+		isReady = true;
+
+		for(i = 0; i < numProcessos; ++i)
+		{
+			if(fila.getHead().listaAck[i] == false)
+			{
+				isReady = false;
+			}
+		}
+
+		if(isReady)
+			fila.getHead().do();
+	}
+
+}
+
+mensagem
+{
+	lista de acks -> listaAck[numProcessos]
+
+	mensagem
+}
