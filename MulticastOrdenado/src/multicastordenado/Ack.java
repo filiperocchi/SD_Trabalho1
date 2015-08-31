@@ -9,6 +9,11 @@ package multicastordenado;
 
 
 public class Ack {
-	public int tempo;
-	public int tempoMensagem;
+	public Integer tempo;
+	public Integer tempoMensagem;
+	
+	public Ack(Integer t, Integer tm){
+		tempo = t;
+		tempoMensagem = tm;
+	}
 }

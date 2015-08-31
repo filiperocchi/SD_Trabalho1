@@ -9,8 +9,14 @@ package multicastordenado;
 
 
 public class Mensagem {
-	public int tempo;
+	public Integer tempo;
 	public String conteudo;
+	public boolean pronto;
+	
+	public Mensagem(Integer t, String c){
+		tempo = t;
+		conteudo = c;
+	}
 	
 	public void imprimir(){
 		System.out.println(conteudo);

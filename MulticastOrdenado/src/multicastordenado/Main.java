@@ -13,11 +13,13 @@ import java.util.ArrayList;
 public class Main {
 	
 	public static void main(){
-		 
+		 // cria e inicia a thread Start
+		
+		//espera ela acabar e sai
 	}
 }
 
-class NovaMensagem implements Runnable {
+class Start implements Runnable {
 	
 	public static ArrayList<Processo> processos;
 
@@ -27,7 +29,7 @@ class NovaMensagem implements Runnable {
 		
 		// cria as threads de processo
 		//guardando na lista
-		//manda mensagem pra uma aleatoria
+		//manda mensagem pra uma aleatoria e olha a coisa pegar fogo
 	}
 	
 }

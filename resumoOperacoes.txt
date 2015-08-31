@@ -9,29 +9,33 @@ Main
 	}
 	(poderia ter um processo que fosse o controlador, em que pudesse escolher onde mandar uma mnensagem na aplicação
 	ou deixa hardcoded mesmo)
+
+	Start (vai ser a thread que lança os processos e manda mensagens)
 }
+
+necessário classe intermediária pra ser thread que cria o processo
 
 Processo (thread)
 {
-	atributo lista de processos (estatico, simulando o meio)
-	atributo lista de mensagens
-		tem que ter lista de acks pra lista de mensagens
-	atributo id (unico)
-	atributo aplicacao (uma por processo, pode ser mesmo id do processo)
+-	atributo lista de processos (estatico, simulando o meio)
+-	atributo lista de mensagens
+-		tem que ter lista de acks pra lista de mensagens
+-	atributo id (unico)
+-	atributo aplicacao (uma por processo, pode ser mesmo id do processo)
 
-	inserir nova mensagem
+-	inserir nova mensagem
 	{
 		tem que ser ordenado pelo tempo da mensagem
 		manda mensagem requisitando ack de entrega da mensagem (tempo tem que ser igual)
 	}
 
-	mandar ack
+-	mandar ack
 	{
 		pra todos da lista, exceto ele mesmo
 		com tempo da mensagem e tempo próprio(mensagem +1)
 	}
 
-	receber ack
+-	receber ack
 	{
 		verificar de que mensagem e se tempo do ack é maior
 	}
@@ -39,22 +43,25 @@ Processo (thread)
 
 Mensagem
 {
-	atributo tempo
-	atributo conteudo
+-	atributo tempo
+-	atributo conteudo
+-	atributo pronto
+
+-	imprimir mensagem
 
 }
 
 Ack
 {
-	atributo tempo
-	atributo tempoMensagem
+-	atributo tempo
+-	atributo tempoMensagem
 
 }
 
 Aplicacao
 {
-	atributo id (unico)
+-	atributo id (unico)
 
-	imprime o processo que mandou a mensagem e a mensagem
-	
+-	imprime o processo que mandou a mensagem e a mensagem
+
 }
