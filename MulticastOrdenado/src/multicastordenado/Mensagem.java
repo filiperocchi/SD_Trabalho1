@@ -16,6 +16,7 @@ public class Mensagem {
 	public Mensagem(Integer t, String c){
 		tempo = t;
 		conteudo = c;
+		pronto = false;
 	}
 	
 	public void imprimir(){
