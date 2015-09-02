@@ -7,13 +7,14 @@
  */
 package multicastordenado;
 
-
-public class Ack {
-	public Integer tempo;
-	public Integer tempoMensagem;
 	
-	public Ack(Integer t, Integer tm){
-		tempo = t;
-		tempoMensagem = tm;
+public class Ack {
+	public int idProcessoEnviandoAck;
+	public int idMensagem;
+	
+	public Ack(Integer p, Integer m)
+	{
+		idProcessoEnviandoAck = p;
+		idMensagem = m;
 	}
 }

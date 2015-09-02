@@ -7,19 +7,40 @@
  */
 package multicastordenado;
 
+import java.util.ArrayList;
+
 
 public class Mensagem {
-	public Integer tempo;
+	public Integer idRemetente;
+	public Integer tempoRemetente;
 	public String conteudo;
-	public boolean pronto;
+
+	public int id;
 	
-	public Mensagem(Integer t, String c){
-		tempo = t;
+	//ArrayList<Integer> missingAcks;
+	
+	public Mensagem(int idrem, int i, Integer t, String c){
+		idRemetente = idrem;
+		tempoRemetente = t;
+		
 		conteudo = c;
-		pronto = false;
+
+		id = i; // cria id única
+		//missingAcks = new ArrayList<>();
+	}
+
+	public Mensagem(Mensagem m){
+		idRemetente = m.idRemetente;
+		tempoRemetente = m.tempoRemetente;
+		conteudo = m.conteudo;
+
+		id = m.id;
+		
+		//for(Integer i : m.missingAcks)
+		//	missingAcks.add(i);
 	}
 	
 	public void imprimir(){
-		System.out.println(conteudo);
+		System.out.println("MSG "+id+": Imprimindo mensagem{id:"+id+", t:"+tempoRemetente+"}: " + conteudo);
 	}
 }

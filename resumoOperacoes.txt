@@ -18,6 +18,8 @@ necessário classe intermediária pra ser thread que cria o processo
 Processo (thread)
 {
 -	atributo lista de processos (estatico, simulando o meio)
+
+
 -	atributo lista de mensagens
 -		tem que ter lista de acks pra lista de mensagens
 -	atributo id (unico)
@@ -41,11 +43,12 @@ Processo (thread)
 	}
 }
 
-Mensagem
+
+
+Mensagem (também mandada para o remetente)
 {
--	atributo tempo
+-	atributo tempoAtualDoRemetente (lógico)
 -	atributo conteudo
--	atributo pronto
 
 -	imprimir mensagem
 

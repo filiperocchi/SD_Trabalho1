@@ -16,7 +16,7 @@ public class Aplicacao {
 	}
 	
 	public void send(Mensagem mensagem){
-		System.out.println("Processo "+id+" enviou mensagem para aplicação: ");
-		mensagem.imprimir();
+		System.out.println("APP "+id+": enviou mensagem para aplicação: "+mensagem.conteudo);
+		//mensagem.imprimir();
 	}
 }

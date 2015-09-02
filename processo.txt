@@ -1,22 +1,45 @@
 processo
 {
+	relógio
+		// Before executing an event (i.e., sending a message over the network, delivering a message to an application, or some other internal event), Pi executes G f- G + 1.
+		// When process Pi sends a message m to Pj' it sets m's timestamp ts(m) equal to G after having executed the previous step.
+		// Upon the receipt of a message m, process lj adjusts its own local counter as 0 f- max{ 0, ts (m) }, after which it then executes the first step and delivers the message to the application.
+
+
 	fila <mensagem> <-- tem que inserir ordenado por tempo da mensagem
 
+	quando recebe mensagem, manda ack com tempo maior para todos os outros processos (não para ele mesmo)
+
+	"The interesting aspect of this approach is that all processes will eventually have the same copy of the local queue (provided no messages are removed)."
+
+
+
+
+
+
+	Comparator<int> comparator = new MessageTimestampComparator();
+	PriorityQueue<String> queue = new PriorityQueue<String>(10, comparator);
+
+	queue.add()
+	queue.remove()
 
 	run()
 	{
-		isReady = true;
-
-		for(i = 0; i < numProcessos; ++i)
+		while(1)
 		{
-			if(fila.getHead().listaAck[i] == false)
-			{
-				isReady = false;
-			}
-		}
+			isReady = true;
 
-		if(isReady)
-			fila.getHead().do();
+			for(i = 0; i < numProcessos; ++i)
+			{
+				if(fila.getHead().listaAck[i] == false)
+				{
+					isReady = false;
+				}
+			}
+
+			if(isReady)
+				fila.getHead().do(); // executa cabeça da fila, "mensagem é executada na aplicação"
+		}
 	}
 
 }
@@ -25,5 +48,26 @@ mensagem
 {
 	lista de acks -> listaAck[numProcessos]
 
+	tempo // 'C(essaMensagem)'
+
+
 	mensagem
+}
+
+
+public class MessageTimestampComparator implements Comparator<int>
+{
+    @Override
+    public int compare(MensagemInterna x, MensagemInterna y)
+    {
+		if (x.m.tempo < y.m.tempo)
+		{
+			return -1;
+		}
+		if (x.m.tempo > y.m.tempo)
+		{
+			return 1;
+		}
+			return 0;
+    }
 }
